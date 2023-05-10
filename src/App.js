@@ -1,35 +1,4 @@
-const Header = (props) => {
-  return (
-    <>
-      <h1>{props.course}</h1>
-    </>
-  )
-}
-
-const Part = (props) => {
-  return (
-    <p>{props.part} {props.exercises}</p>
-  )
-}
-
-const Content = (props) => {
-  const parts = props.parts
-  return (
-    <div>
-      <Part part={parts[0].name} exercises={parts[0].exercises}/>
-      <Part part={parts[1].name} exercises={parts[1].exercises}/>
-      <Part part={parts[2].name} exercises={parts[2].exercises}/>
-    </div>
-  )
-}
-
-const Total = (props) => {
-  const parts = props.parts
-  const total = parts[0].exercises + parts[1].exercises + parts[2].exercises
-  return (
-    <p>Number of exercises {total}</p>
-  )
-}
+import Course from "./appComponents/Course"
 
 const App = () => {
   const course = {
@@ -51,13 +20,7 @@ const App = () => {
   }
 
 
-  return (
-    <div>
-      <Header course={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
-    </div>
-  );
+  return <Course course={course}/>
 }
 
 export default App;
